@@ -1,0 +1,24 @@
+<main>
+    <div class="d-flex align-items-center">
+        <div class="flex-grow-1">
+            <h1>Kartvizitler</h1>
+        </div>
+        <app-card-search></app-card-search>
+        <button mat-flat-button color="primary" style="margin-left: 16px;" (click)="openAddCardModal()">Yeni Kartvizit</button>
+    </div>   
+    <hr>
+    
+    <div class="cards">
+        <div class="row">
+            <div class="col-12" *ngIf="!cardService.cards">
+                <span>Kartvizitler yükleniyor.Lütfen Bekleyiniz...</span>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3" *ngFor='let card of cardService.filteredCards'>
+             <app-card-item [card]='card'></app-card-item>
+            </div>
+            
+        </div>
+    </div>
+    
+</main>
+
